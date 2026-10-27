@@ -9,7 +9,7 @@ Long-running agent tasks can take many minutes. If macOS decides the machine is 
 ## How it works
 
 - The plugin subscribes to OpenCode session events and tracks which sessions are busy (including sub-agent / child sessions).
-- A session is counted as busy on `session.status` with status `busy` or `retry`, and removed on status `idle`, `session.idle`, or `session.deleted`.
+- A session is counted as busy on `session.execution.started` and removed on `session.execution.succeeded`, `session.execution.failed`, or `session.execution.interrupted` (OpenCode 2.1.x). Older servers that emit `session.status` (`busy`/`retry` → busy, `idle` → idle), `session.idle`, or `session.deleted` are still handled.
 - While at least one session is busy, a single `/usr/bin/caffeinate -i -w <pid>` process runs, where `<pid>` is the OpenCode process. `-i` prevents idle system sleep.
 - When all sessions are idle, `caffeinate` is terminated and normal sleep behaviour resumes.
 - Because of `-w <pid>`, `caffeinate` also exits on its own if OpenCode quits or crashes, so no stray assertion is left behind.
