@@ -1,0 +1,53 @@
+{
+  "name": "@bayu06/opencode-keep-awake",
+  "version": "0.1.0",
+  "description": "OpenCode plugin that keeps your Mac awake while an agent session is working",
+  "type": "module",
+  "main": "dist/keep-awake.js",
+  "types": "dist/keep-awake.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/keep-awake.d.ts",
+      "import": "./dist/keep-awake.js",
+      "default": "./dist/keep-awake.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "caffeinate",
+    "macos",
+    "sleep"
+  ],
+  "author": "yhoyoex",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yhoyoex/opencode-keep-awake.git"
+  },
+  "homepage": "https://github.com/yhoyoex/opencode-keep-awake#readme",
+  "bugs": {
+    "url": "https://github.com/yhoyoex/opencode-keep-awake/issues"
+  },
+  "os": [
+    "darwin"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@opencode/plugin": ">=2.1.0 <3"
+  },
+  "devDependencies": {
+    "@opencode/plugin": "^2.2.3",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  }
+}
