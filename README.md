@@ -23,6 +23,20 @@ No `sudo`, no `pmset` changes, no dependencies beyond the OpenCode plugin API.
 
 ## Install
 
+### From npm (recommended)
+
+Add the package to `plugins` in `~/.config/opencode/opencode.json`:
+
+```json
+{
+  "plugins": ["@bayu06/opencode-keep-awake@0.1.0"]
+}
+```
+
+Then restart OpenCode.
+
+### As a local file
+
 Local plugins in `~/.config/opencode/plugins/` are loaded automatically; no entry in `opencode.json` is needed.
 
 Download the plugin file:
